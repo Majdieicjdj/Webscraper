@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: webscraper-backend
+    runtime: python
+    repo: https://github.com/Majdieicjdj/Webscraper
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # Change 'app' to your Python file's name
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: FLASK_ENV
+        value: production
